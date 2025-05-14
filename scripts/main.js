@@ -25,6 +25,8 @@ Events.on(ClientLoadEvent, () => {
                 let x = p.mouseX;
                 let y = p.mouseY;
 
+                if (x == 0) return;  // sometimes custom clients dont upload the mouse. so we wont render it
+
                 font.draw(p.name, x, y, Align.center);
 
                 let lineColor = p.team().color.cpy();
