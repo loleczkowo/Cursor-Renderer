@@ -1,9 +1,0 @@
-name: Cursor_renderer
-displayName: Cursor Renderer
-author: "[lime]loleczkowo[]"
-version: "1.2"
-minGameVersion: 136
-description: Draws every player's cursor and name, excluding yourself.
-hidden: true
-clientOnly: true
-repo: "loleczkowo/cursor-renderer"
