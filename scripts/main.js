@@ -1,16 +1,6 @@
 Events.on(ClientLoadEvent, () => {
     const t = Vars.ui.settings.graphics;
 
-    // Add spacing
-    t.row();
-    t.image().color(Pal.accent).height(3).fillX().pad(10);
-    t.row();
-
-    // Optional category label
-    t.label(() => "[accent]Cursor Renderer Settings[]").pad(6).left();
-    t.row();
-
-    // Add sliders
     t.sliderPref("cursor-renderer-text-alpha", 50, 0, 100, 5, v => v + "%");
     t.sliderPref("cursor-renderer-line-alpha", 50, 0, 100, 5, v => v + "%");
 
