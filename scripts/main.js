@@ -1,8 +1,17 @@
 Events.on(ClientLoadEvent, () => {
     const t = Vars.ui.settings.graphics;
 
-    t.sliderPref("cursor-renderer-text-alpha", 50, 0, 100, 5, v => v + "%");
-    t.sliderPref("cursor-renderer-line-alpha", 50, 0, 100, 5, v => v + "%");
+
+    Vars.ui.settings.graphics.sliderPref(
+        "cursor-renderer-text-alpha",
+        50, 0, 100, 5,
+        v => v + "%"
+    );
+    Vars.ui.settings.graphics.sliderPref(
+        "cursor-renderer-line-alpha",
+        50, 0, 100, 5,
+        v => v + "%"
+    );
 
     Vars.renderer.addEnvRenderer(Env.none, () => {
         Draw.draw(Layer.overlayUI, () => {
