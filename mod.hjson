@@ -7,5 +7,3 @@ description: Draws every player's cursor and name, excluding yourself.
 hidden: true
 clientOnly: true
 repo: "loleczkowo/cursor-renderer"
-main: scripts/main.js
-java: true
