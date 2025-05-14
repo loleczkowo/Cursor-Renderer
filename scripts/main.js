@@ -1,8 +1,7 @@
 Events.on(ClientLoadEvent, () => {
-    Vars.ui.settings.graphics.table(/** @type {arc.func.Cons} */(t => {
+    Vars.ui.settings.graphics.table(null, t => {
         t.row();
-        t.image().height(4).color(Pal.accent).growX().pad(10).row();
-
+        t.image().color(Pal.accent).height(4).growX().pad(10).row();
         t.add("[accent]Cursor Renderer Settings").left().padBottom(6).row();
 
         t.slider(0, 100, 1, Core.settings.getInt("cursor-renderer-text-alpha", 50), v => {
@@ -12,7 +11,7 @@ Events.on(ClientLoadEvent, () => {
         t.slider(0, 100, 1, Core.settings.getInt("cursor-renderer-line-alpha", 50), v => {
             Core.settings.put("cursor-renderer-line-alpha", v);
         }).width(200).row();
-    }));
+    });
 
 
     Vars.renderer.addEnvRenderer(Env.none, () => {
