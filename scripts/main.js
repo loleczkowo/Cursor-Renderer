@@ -1,5 +1,5 @@
 Events.on(ClientLoadEvent, () => {
-    Vars.ui.settings.addCategory("Cursor Renderer", "cursor", t => {
+    Vars.ui.settings.addCategory("Cursor Renderer", "cursoricon", t => {
         t.sliderPref("cursor-renderer-text-alpha", 50, 0, 100, 5, v => v + "%");
         t.sliderPref("cursor-renderer-line-alpha", 50, 0, 100, 5, v => v + "%");
     });
