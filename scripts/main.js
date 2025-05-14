@@ -1,17 +1,9 @@
 Events.on(ClientLoadEvent, () => {
-    Vars.ui.settings.graphics.category("cursor-renderer");
+    Vars.ui.settings.graphics.addCategory("Cursor Renderer", "cursor", table => {
+        table.sliderPref("cursor-renderer-text-alpha", 50, 0, 100, 5, v => v + "%");
+        table.sliderPref("cursor-renderer-line-alpha", 50, 0, 100, 5, v => v + "%");
+    });
 
-    Vars.ui.settings.graphics.sliderPref(
-        "cursor-renderer-text-alpha",
-        50, 0, 100, 5,
-        v => v + "%"
-    );
-
-    Vars.ui.settings.graphics.sliderPref(
-        "cursor-renderer-line-alpha",
-        50, 0, 100, 5,
-        v => v + "%"
-    );
 
     Vars.renderer.addEnvRenderer(Env.none, () => {
         Draw.draw(Layer.overlayUI, () => {
