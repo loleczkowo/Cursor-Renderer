@@ -1,17 +1,18 @@
 Events.on(ClientLoadEvent, () => {
-    Vars.ui.settings.graphics.category("cursor-renderer");
+    Vars.ui.settings.graphics.table(t => {
+        t.row();
+        t.image().height(4).color(Pal.accent).growX().pad(10).row(); // spacer line
 
-    Vars.ui.settings.graphics.sliderPref(
-        "cursor-renderer-text-alpha",
-        50, 0, 100, 5,
-        v => v + "%"
-    );
+        t.add("[accent]Cursor Renderer Settings").left().padBottom(6).row();
 
-    Vars.ui.settings.graphics.sliderPref(
-        "cursor-renderer-line-alpha",
-        50, 0, 100, 5,
-        v => v + "%"
-    );
+        t.slider(0, 100, 1, Core.settings.getInt("cursor-renderer-text-alpha", 50), v => {
+            Core.settings.put("cursor-renderer-text-alpha", v);
+        }).width(200).row();
+
+        t.slider(0, 100, 1, Core.settings.getInt("cursor-renderer-line-alpha", 50), v => {
+            Core.settings.put("cursor-renderer-line-alpha", v);
+        }).width(200).row();
+    });
 
     Vars.renderer.addEnvRenderer(Env.none, () => {
         Draw.draw(Layer.overlayUI, () => {
