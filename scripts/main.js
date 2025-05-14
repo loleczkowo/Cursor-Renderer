@@ -1,18 +1,18 @@
 Events.on(ClientLoadEvent, () => {
-    Vars.ui.settings.graphics.table(null, t => {
-        t.row();
-        t.image().color(Pal.accent).height(4).growX().pad(10).row();
-        t.add("[accent]Cursor Renderer Settings").left().padBottom(6).row();
+    const t = Vars.ui.settings.graphics;
 
-        t.slider(0, 100, 1, Core.settings.getInt("cursor-renderer-text-alpha", 50), v => {
-            Core.settings.put("cursor-renderer-text-alpha", v);
-        }).width(200).row();
+    // Add spacing
+    t.row();
+    t.image().color(Pal.accent).height(3).fillX().pad(10);
+    t.row();
 
-        t.slider(0, 100, 1, Core.settings.getInt("cursor-renderer-line-alpha", 50), v => {
-            Core.settings.put("cursor-renderer-line-alpha", v);
-        }).width(200).row();
-    });
+    // Optional category label
+    t.label(() => "[accent]Cursor Renderer Settings[]").pad(6).left();
+    t.row();
 
+    // Add sliders
+    t.sliderPref("cursor-renderer-text-alpha", 50, 0, 100, 5, v => v + "%");
+    t.sliderPref("cursor-renderer-line-alpha", 50, 0, 100, 5, v => v + "%");
 
     Vars.renderer.addEnvRenderer(Env.none, () => {
         Draw.draw(Layer.overlayUI, () => {
