@@ -1,5 +1,7 @@
+const LabelSetting = Packages.cursorrenderer.CursorRendererLabelSetting;
+
 Events.on(ClientLoadEvent, () => {
-    Vars.ui.settings.graphics.pref("test123");
+    Vars.ui.settings.graphics.pref(new LabelSetting("cursor-renderer-info"));
 
     Vars.ui.settings.graphics.sliderPref(
         "cursor-renderer-text-alpha",
