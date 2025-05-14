@@ -1,8 +1,4 @@
-const CategorySetting = Packages.cursorrenderer.CategorySetting;
-
 Events.on(ClientLoadEvent, () => {
-    Vars.ui.settings.graphics.pref(new CategorySetting("cursor-renderer"));
-
     Vars.ui.settings.graphics.sliderPref(
         "cursor-renderer-text-alpha",
         50, 0, 100, 5,
