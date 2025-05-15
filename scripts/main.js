@@ -2,13 +2,13 @@ Events.on(ClientLoadEvent, () => {
     Vars.ui.settings.graphics.sliderPref(
         "cursor-renderer-text-alpha",
         50, 0, 100, 5,
-        valp1 => valp1 + "%"
+        function(valp1) { return valp1 + "%"; }
     );
 
     Vars.ui.settings.graphics.sliderPref(
         "cursor-renderer-line-alpha",
         50, 0, 100, 5,
-        valp2 => valp2 + "%"
+        function(valp2) { return valp2 + "%"; }
     );
 
     Vars.renderer.addEnvRenderer(Env.none, () => {
