@@ -14,6 +14,8 @@ Events.on(ClientLoadEvent, () => {
     Vars.renderer.addEnvRenderer(Env.none, () => {
         let font = Fonts.outline;
         let textColor = Color.white.cpy();
+        let originalScale = font.getData().scaleX;
+        let originalColor = font.getColor().cpy();
         Draw.draw(Layer.overlayUI, () => {
             font.getData().setScale(0.3);
 
@@ -40,6 +42,8 @@ Events.on(ClientLoadEvent, () => {
                 Draw.color(lineColor);
                 Lines.line(p.x, p.y, x, y);
             });
+            font.getData().setScale(originalScale);
+            font.setColor(originalColor);
             Draw.reset();
         });
     });
