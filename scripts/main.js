@@ -13,10 +13,10 @@ Events.on(ClientLoadEvent, () => {
 
     Vars.renderer.addEnvRenderer(Env.none, () => {
         let font = Fonts.outline;
-
-        font.getData().setScale(0.3);
         let textColor = Color.white.cpy();
         Draw.draw(Layer.overlayUI, () => {
+            font.getData().setScale(0.3);
+
             let textAlpha = Core.settings.getInt("cursor-renderer-text-alpha", 50) / 100;
             let lineAlpha = Core.settings.getInt("cursor-renderer-line-alpha", 50) / 100;
 
