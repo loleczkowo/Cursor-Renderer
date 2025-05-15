@@ -2,27 +2,26 @@ Events.on(ClientLoadEvent, () => {
     Vars.ui.settings.graphics.sliderPref(
         "cursor-renderer-text-alpha",
         50, 0, 100, 5,
-        v => v + "%"
+        valp1 => valp1 + "%"
     );
 
     Vars.ui.settings.graphics.sliderPref(
         "cursor-renderer-line-alpha",
         50, 0, 100, 5,
-        v => v + "%"
+        valp2 => valp2 + "%"
     );
 
     Vars.renderer.addEnvRenderer(Env.none, () => {
+        let font = Fonts.outline;
+        let originalScale = font.getData().scaleX;
+        let originalColor = font.getColor().cpy();
+
+        font.getData().setScale(0.3);
+        let textColor = Color.white.cpy();
         Draw.draw(Layer.overlayUI, () => {
-            let font = Fonts.outline;
-            let originalScale = font.getData().scaleX;
-            let originalColor = font.getColor().cpy();
-
-            font.getData().setScale(0.3);
-
             let textAlpha = Core.settings.getInt("cursor-renderer-text-alpha", 50) / 100;
             let lineAlpha = Core.settings.getInt("cursor-renderer-line-alpha", 50) / 100;
 
-            let textColor = Color.white.cpy();
             textColor.a = textAlpha;
             font.setColor(textColor);
 
